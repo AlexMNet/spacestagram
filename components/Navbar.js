@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IoRocketSharp } from 'react-icons/io5';
+import { FaSpaceShuttle } from 'react-icons/fa';
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -7,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className='flex items-center justify-between flex-wrap bg-sky-500 p-6 '>
       <div className='flex items-center flex-shrink-0 text-white mr-6'>
-        <IoRocketSharp className='mr-3' />
+        <FaSpaceShuttle className='mr-3 text-2xl' />
 
         <span className='font-semibold text-xl tracking-tight'>Space</span>
         <span>stagram</span>
