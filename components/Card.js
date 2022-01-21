@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import Pill from './Pill';
 
 export default function Card({ copyright, date, explanation, title, url }) {
   const [readMore, setReadMore] = useState('...Read More');
@@ -33,7 +34,7 @@ export default function Card({ copyright, date, explanation, title, url }) {
       <div className='px-6 py-4'>
         <div className='mb-2'>
           <p className='font-bold text-xl'>{title}</p>
-          <small className='text-gray-400'>{date}</small>
+          <Pill>{date}</Pill>
         </div>
 
         <p className='text-gray-700 text-base'>
