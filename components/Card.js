@@ -6,6 +6,7 @@ import Pill from './Pill';
 export default function Card({ copyright, date, explanation, title, url }) {
   const [readMore, setReadMore] = useState('...Read More');
   const [truncate, setTruncate] = useState(true);
+  const [liked, setLiked] = useState(false);
 
   const handleOnClick = (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ export default function Card({ copyright, date, explanation, title, url }) {
   };
 
   return (
-    <div className='max-w-sm rounded overflow-hidden shadow-lg mx-auto my-16'>
+    <div className='max-w-md rounded overflow-hidden shadow-lg mx-auto my-16'>
       <Image
         layout='responsive'
         placeholder='blur'
@@ -55,9 +56,20 @@ export default function Card({ copyright, date, explanation, title, url }) {
           </div>
         )}
       </div>
-      <div className='px-6 pt-4 pb-2'>
-        <button className='inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700 mr-2 mb-2 transition ease-in-out delay-150  hover:scale-110 duration-300'>
-          <FaRegHeart />
+      <div className='px-6 pt-1 pb-1'>
+        <button
+          className='inline-block px-3 py-2 text-sm font-semibold text-gray-700 mr-2 mb-2'
+          onClick={() => setLiked(!liked)}
+        >
+          {liked ? (
+            <FaHeart
+              className={`${
+                liked && 'animate-heartPulse'
+              } text-red-500 text-2xl`}
+            />
+          ) : (
+            <FaRegHeart className='text-red-500 text-2xl' />
+          )}
         </button>
       </div>
     </div>
