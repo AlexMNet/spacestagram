@@ -9,7 +9,12 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function Posts() {
   const { data, error } = useSWR(
     'https://api.nasa.gov/planetary/apod?count=10&api_key=cvQapeKQrk23EHMLhfhOUwzqpfGZeucTdcKTcnR4',
-    fetcher
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
   );
 
   if (error || (data && data.errors))
